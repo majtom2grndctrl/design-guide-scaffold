@@ -1,1 +1,1 @@
-# design-guide-scaffold
+# Design Guide Scaffold
