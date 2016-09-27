@@ -1,0 +1,29 @@
+{
+  "name": "design-guide-scaffold",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp default",
+    "gulp:version": "gulp --version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majtom2grndctrl/design-guide-scaffold.git"
+  },
+  "author": "Dan Hiester <dan.hiester@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/majtom2grndctrl/design-guide-scaffold/issues"
+  },
+  "homepage": "https://github.com/majtom2grndctrl/design-guide-scaffold#readme",
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
