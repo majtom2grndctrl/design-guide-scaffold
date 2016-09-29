@@ -5,8 +5,9 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp default",
-    "gulp:version": "gulp --version"
+    "dev": "concurrently \"npm run css\" \"npm run html\"",
+    "html": "nunjucks index.njk -p src -o dist -w",
+    "css": "node-sass --output-style compressed -w -o --source-map dist/css src/sass/main.scss main.css"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,8 @@
   "homepage": "https://github.com/majtom2grndctrl/design-guide-scaffold#readme",
   "devDependencies": {
     "browser-sync": "^2.16.0",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-nunjucks-render": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0"
+    "concurrently": "^3.0.0",
+    "node-sass": "^3.10.0",
+    "nunjucks-cli": "^0.4.9"
   }
 }
