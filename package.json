@@ -9,8 +9,8 @@
     "gulp:version": "gulp --version"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/majtom2grndctrl/design-guide-scaffold.git"
+    "url": "git+https://github.com/majtom2grndctrl/design-guide-scaffold.git",
+    "type": "git"
   },
   "author": "Dan Hiester <dan.hiester@gmail.com>",
   "license": "MIT",
@@ -25,5 +25,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.18.2"
   }
 }
