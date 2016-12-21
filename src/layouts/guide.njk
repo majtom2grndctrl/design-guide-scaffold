@@ -6,17 +6,34 @@
     <title>"New Design Project Scaffold"</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-
     {% block style %}{% endblock %}
+    <script type="text/javascript" src="js/core.js" async></script>
   </head>
-  <body class="ns-body">
-    <nav class="ns-nav1">
+  <body>
+    <nav class="guide-nav1">
       <a href="design-principles.html">Design principles</a>
       <a href="style-guide.html">Style guide</a>
       <a href="homepage.html">Homepage</a>
       <a href="content-page.html">Content page</a>
       <a href="design-patterns.html">Design patterns</a>
+      {%- set menuOpts = {
+        menuId: 'menu1',
+        launcherText: 'Visit layouts',
+        links: [
+          {
+            href: 'foo',
+            text: 'Link text'
+          },
+          {
+            href: 'bar',
+            text: 'Link two'
+          }
+        ]
+      } -%}
+      {% include "../patterns/dropdown/dropdown.njk" %}
     </nav>
+    <main class="guide-content" id="contentRoot">
     {% block body %}{% endblock %}
+  </main>
   </body>
 </html>

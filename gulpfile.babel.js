@@ -1,16 +1,20 @@
-const gulp = require('gulp'),
-      bs = require('browser-sync').create(),
-      nunjucks = require('gulp-nunjucks-render'),
-      sass = require('gulp-sass'),
-      sourcemaps = require('gulp-sourcemaps');
+import gulp from 'gulp';
+import babel from 'gulp-babel';
+import browserSync from 'browser-sync';
+import concat from 'gulp-concat';
+import nunjucks from 'gulp-nunjucks-render';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
+import uglify from 'gulp-uglify';
+const reload = browserSync.reload;
 
 function html() {
-  return gulp.src('src/index.njk')
+  return gulp.src('src/pages/*.njk')
     .pipe(nunjucks({
       path: 'src/'
     }))
     .pipe(gulp.dest('./dist'))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 }
 
 function css() {
@@ -19,31 +23,33 @@ function css() {
     .pipe(sass())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./dist/css'))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 }
 
 function js() {
   return gulp.src('src/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
-    .pipe(concat('all.js'))
+//    .pipe(uglify())
+    .pipe(concat('core.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/js'))
-    .pipe(bs.stream());
+    .pipe(browserSync.stream());
 }
 
 function dev() {
-  bs.init({
+  browserSync.init({
     server: "./dist"
   })
-  gulp.watch('src/**/*.njk', html).on('end', bs.reload);
-  gulp.watch('src/sass/**/*.scss', css).on('end', bs.reload);
+  gulp.watch('src/**/*.njk', html).on('end', reload);
+  gulp.watch('src/sass/**/*.scss', css).on('end', reload);
+  gulp.watch('src/**/*.js', js).on('end', reload);
 }
 
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel(html, css),
+    gulp.parallel(html, css, js),
     dev
   )
 );

@@ -1,0 +1,21 @@
+.dropdown {
+  position: relative;
+  &-launcher {
+    &[aria-expanded="true"] + .dropdown-menu {
+      opacity: 1;
+    }
+  }
+  &-menu {
+    background-color: $mutedColor800;
+    position: absolute;
+      top: 100%;
+    opacity: 0;
+    transition: opacity .125s ease-in-out;
+    z-index: 200;
+
+    a {
+      display: block;
+      padding: .125em .25em;
+    }
+  }
+}

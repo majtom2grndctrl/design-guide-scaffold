@@ -5,7 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp default",
+    "dev": "gulp",
     "gulp:version": "gulp --version"
   },
   "repository": {
@@ -21,9 +21,17 @@
   "devDependencies": {
     "browser-sync": "^2.18.2",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-webpack": "^1.5.0"
   },
+  "dependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0"
+  }
 }
