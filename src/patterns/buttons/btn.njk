@@ -1,0 +1,17 @@
+{% macro btn(label = "", type = "button") %}
+  <button type="{{ type }}">{{ label }}</button>
+{% endmacro %}
+
+{% macro close(label = "Close", attrs = {}) %}
+  {% set defaultClass = '' %}
+  {% if attrs.class == null %}
+    {% set defaultClass = "class=\"btn-close\"" %}
+  {% endif %}
+  <button {{ defaultClass | safe }} {{ listAttributes(attrs) }}>{{ label }}</button>
+{% endmacro %}
+
+{% macro listAttributes(attrs = {}) %}
+  {%- for key, value in attrs -%}
+    {{ key }}="{{value}}"
+  {%- endfor -%}
+{% endmacro %}
