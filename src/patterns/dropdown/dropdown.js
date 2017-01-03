@@ -50,5 +50,5 @@
     setTimeout( () => {thisMenu.setAttribute('hidden', 'hidden')}, 300 );
   }
 
-  document.addEventListener('DOMContentLoaded', initLaunchers);
+  document.addEventListener('DOMContentLoaded', initLaunchers());
 })();

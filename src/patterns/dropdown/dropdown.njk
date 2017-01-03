@@ -1,9 +1,10 @@
+{%- macro dropdown(menuId, launcherText, links=[]) -%}
 <nav class="dropdown">
-  <button class="dropdown-launcher" id="{{ menuOpts.menuId }}" aria-haspopup="true" aria-expanded="false">{{ menuOpts.launcherText }}</button>
-  <div class="dropdown-menu" aria-labeledby="{{ menuOpts.menuId }}">
-    <a href="foo">Test link</a>
-    {% for link in menuOpts.links %}
+  <button class="dropdown-launcher" id="{{ menuId }}" aria-haspopup="true" aria-expanded="false">{{ launcherText }}</button>
+  <div class="dropdown-menu" aria-labeledby="{{ menuId }}">
+    {%- for link in links -%}
       <a href="{{ link.href }}">{{ link.text }}</a>
-    {% endfor %}
+    {%- endfor -%}
   </div>
 </nav>
+{%- endmacro -%}
