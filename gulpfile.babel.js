@@ -17,20 +17,29 @@ function html() {
     .pipe(browserSync.stream());
 }
 
-function css() {
-  return gulp.src('src/sass/main.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(browserSync.stream());
+const css = {
+  main: () => {
+    return css.compile('src/sass/main.scss');
+  },
+  guide: () => {
+    return css.compile('src/layouts/guide.scss');
+  },
+  compile: (path) => {
+    return gulp.src(path)
+      .pipe(sourcemaps.init())
+      .pipe(sass())
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest('./dist/css'))
+      .pipe(browserSync.stream());
+
+  }
 }
 
 function js() {
   return gulp.src('src/**/*.js')
     .pipe(sourcemaps.init())
     .pipe(babel())
-//    .pipe(uglify())
+    .pipe(uglify())
     .pipe(concat('core.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./dist/js'))
@@ -42,14 +51,15 @@ function dev() {
     server: "./dist"
   })
   gulp.watch('src/**/*.njk', html).on('end', reload);
-  gulp.watch('src/sass/**/*.scss', css).on('end', reload);
+  gulp.watch('src/sass/**/*.scss', css.main).on('end', reload);
+  gulp.watch('src/layouts/guide-scss/*.scss', css.guide).on('end', reload);
   gulp.watch('src/**/*.js', js).on('end', reload);
 }
 
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel(html, css, js),
+    gulp.parallel(html, css.main, css.guide, js),
     dev
   )
 );

@@ -1,37 +1,26 @@
+{% import "patterns/buttons/btn.njk" as btn %}
 <!doctype html>
 <html lang="en-us" class="no-js">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>New Design Project Scaffold</title>
+    <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css" type="text/css" />
-    {% block style %}{% endblock %}
     <script type="text/javascript" src="js/core.js" async></script>
   </head>
   <body>
-    <nav class="guide-nav1">
-      <a href="design-principles.html">Design principles</a>
-      <a href="style-guide.html">Style guide</a>
-      <a href="homepage.html">Homepage</a>
-      <a href="content-page.html">Content page</a>
-      <a href="design-patterns.html">Design patterns</a>
-      {%- set menuOpts = {
-        menuId: 'menu1',
-        launcherText: 'Visit layouts',
-        links: [
-          {
-            href: 'foo',
-            text: 'Link text'
-          },
-          {
-            href: 'bar',
-            text: 'Link two'
-          }
-        ]
-      } -%}
-      {% include "../patterns/dropdown/dropdown.njk" %}
-    </nav>
+    <header class="guide-header">
+      <nav class="guide-nav1">
+        {{ btn.close() }}
+        <a href="/">Design Principles</a>
+        <a href="/style-guide.html">Style Guide</a>
+        <a href="/pattern-library.html">Pattern Library</a>
+        <a href="/page-layouts/">Page Layouts Gallery</a>
+        <a href="/prototype">Prototype</a>
+      </nav>
+      <h1>{{ page.title }}</h1>
+    </header>
     <main class="guide-content" id="contentRoot">
     {% block body %}{% endblock %}
   </main>
