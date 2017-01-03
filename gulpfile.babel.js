@@ -31,7 +31,6 @@ const css = {
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('./dist/css'))
       .pipe(browserSync.stream());
-
   }
 }
 
