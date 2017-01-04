@@ -18,11 +18,11 @@ function html() {
 }
 
 const css = {
-  main: () => {
-    return css.compile('src/sass/main.scss');
+  project: () => {
+    return css.compile('src/layouts/project/main.scss');
   },
   guide: () => {
-    return css.compile('src/layouts/guide.scss');
+    return css.compile('src/layouts/guide/guide.scss');
   },
   compile: (path) => {
     return gulp.src(path)
@@ -50,15 +50,15 @@ function dev() {
     server: "./dist"
   })
   gulp.watch('src/**/*.njk', html).on('end', reload);
-  gulp.watch('src/sass/**/*.scss', css.main).on('end', reload);
-  gulp.watch('src/layouts/guide-scss/*.scss', css.guide).on('end', reload);
+  gulp.watch('src/layouts/project/**/*.scss', css.project).on('end', reload);
+  gulp.watch('src/layouts/guide/**/*.scss', css.guide).on('end', reload);
   gulp.watch('src/**/*.js', js).on('end', reload);
 }
 
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel(html, css.main, css.guide, js),
+    gulp.parallel(html, css.project, css.guide, js),
     dev
   )
 );

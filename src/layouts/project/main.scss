@@ -1,10 +1,9 @@
 // Import SASS variables first
-@import 'modules/_colors';
+@import 'scss-modules/_colors';
 
 body {
   background: #fff;
   font-family: sans-serif;
 }
 
-
-@import '../patterns/dropdown/dropdown';
+@import 'patterns/dropdown/dropdown';
