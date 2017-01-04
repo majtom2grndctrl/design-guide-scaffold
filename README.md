@@ -2,7 +2,12 @@
 
 Scaffolding for a Design Guide for new projects, to speed the creation of a design language.
 
-This repository is also a sandbox for trying out Gulp 4.0. There is no need to install Gulp globally --- the NPM scripts use a locally-installed instance.
+This repository is also a sandbox for trying out Gulp 4.0. There is no need to install Gulp globally—the NPM scripts use Gulp locally, instead of globally.
+
+## Prerequisites
+
+* [Node.js](https://nodejs.org) for running the build system.
+* [Yarn](https://yarnpkg.com) for managing dependencies.
 
 ## How to run
 
