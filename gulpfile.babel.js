@@ -34,15 +34,23 @@ const css = {
   }
 }
 
-function js() {
-  return gulp.src('src/**/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(concat('core.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(browserSync.stream());
+const js = {
+  project: () => {
+    return js.compile('src/layouts/project/**/*.js', 'core.js');
+  },
+  guide: () => {
+    return js.compile('src/layouts/guide/**/*.js', 'guide.js');
+  },
+  compile: (path, output) => {
+    return gulp.src(path)
+      .pipe(sourcemaps.init())
+      .pipe(babel())
+      .pipe(uglify())
+      .pipe(concat(output))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('./dist/js'))
+      .pipe(browserSync.stream());
+  }
 }
 
 function dev() {
@@ -52,13 +60,14 @@ function dev() {
   gulp.watch('src/**/*.njk', html).on('end', reload);
   gulp.watch('src/layouts/project/**/*.scss', css.project).on('end', reload);
   gulp.watch('src/layouts/guide/**/*.scss', css.guide).on('end', reload);
-  gulp.watch('src/**/*.js', js).on('end', reload);
+  gulp.watch('src/layouts/project/**/*.js', js.project).on('end', reload);
+  gulp.watch('src/layouts/guide/**/*.js', js.guide).on('end', reload);
 }
 
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel(html, css.project, css.guide, js),
+    gulp.parallel(html, css.project, css.guide, js.project, js.guide),
     dev
   )
 );
