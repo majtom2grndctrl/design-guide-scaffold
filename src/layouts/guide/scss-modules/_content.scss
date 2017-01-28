@@ -1,0 +1,23 @@
+&-content {
+  margin: 2rem 0;
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $fontHeading;
+  }
+  h1, h2, h3 {
+    font-weight: 300;
+  }
+  p {
+    line-height: 1.5em;
+    margin: 1em 0;
+    max-width: 35em;
+  }
+  @include viewportXL {
+
+    > .guide-container {
+      max-width: (900rem/16);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+  }
+}

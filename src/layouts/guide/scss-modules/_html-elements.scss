@@ -1,0 +1,20 @@
+html {
+  &:before {
+    content: "small";
+    display: none;
+    @include viewportMedium {
+      content: 'medium';
+    }
+    @include viewportLarge {
+      content: 'large';
+    }
+    @include viewportXL {
+      content: 'xl';
+    }
+  }
+}
+
+body {
+  color: $gray200;
+  font-family: $fontCopy;
+}

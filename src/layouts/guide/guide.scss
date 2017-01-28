@@ -1,5 +1,11 @@
+// Load SCSS variables and mixins before declaring namespace
+@import "scss-modules/_normalize";
+@import "scss-modules/_vars";
+@import "scss-modules/_html-elements";
+
 // Declare the namespace, and import modules into the namespace
 .guide {
-  @import "scss-modules/header";
-  @import "scss-modules/nav1";
+  @import "scss-modules/_header";
+  @import "scss-modules/_nav1";
+  @import "scss-modules/_content";
 }

@@ -1,12 +1,12 @@
-import gulp from 'gulp';
-import babel from 'gulp-babel';
-import browserSync from 'browser-sync';
-import concat from 'gulp-concat';
-import nunjucks from 'gulp-nunjucks-render';
-import sass from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
-import uglify from 'gulp-uglify';
-const reload = browserSync.reload;
+import gulp from 'gulp'
+import babel from 'gulp-babel'
+import browserSync from 'browser-sync'
+import concat from 'gulp-concat'
+import nunjucks from 'gulp-nunjucks-render'
+import sass from 'gulp-sass'
+import sourcemaps from 'gulp-sourcemaps'
+import uglify from 'gulp-uglify'
+const reload = browserSync.reload
 
 function html() {
   return gulp.src('src/pages/*.njk')
@@ -14,15 +14,15 @@ function html() {
       path: 'src/'
     }))
     .pipe(gulp.dest('./dist'))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
 }
 
 const css = {
   project: () => {
-    return css.compile('src/layouts/project/main.scss');
+    return css.compile('src/layouts/project/main.scss')
   },
   guide: () => {
-    return css.compile('src/layouts/guide/guide.scss');
+    return css.compile('src/layouts/guide/guide.scss')
   },
   compile: (path) => {
     return gulp.src(path)
@@ -30,16 +30,16 @@ const css = {
       .pipe(sass())
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('./dist/css'))
-      .pipe(browserSync.stream());
+      .pipe(browserSync.stream())
   }
 }
 
 const js = {
   project: () => {
-    return js.compile('src/layouts/project/**/*.js', 'core.js');
+    return js.compile('src/layouts/project/**/*.js', 'core.js')
   },
   guide: () => {
-    return js.compile('src/layouts/guide/**/*.js', 'guide.js');
+    return js.compile('src/layouts/guide/**/*.js', 'guide.js')
   },
   compile: (path, output) => {
     return gulp.src(path)
@@ -53,21 +53,36 @@ const js = {
   }
 }
 
+const img = {
+  project: () => {
+    return img.copy('src/layouts/project/img/*', 'dist/guide/img')
+  },
+  guide: () => {
+    return img.copy('src/layouts/guide/img/*', 'dist/img')
+  },
+  copy: (path, destination) => {
+    return gulp.src(path)
+      .pipe(gulp.dest(destination));
+  }
+}
+
 function dev() {
   browserSync.init({
     server: "./dist"
   })
-  gulp.watch('src/**/*.njk', html).on('end', reload);
-  gulp.watch('src/layouts/project/**/*.scss', css.project).on('end', reload);
-  gulp.watch('src/layouts/guide/**/*.scss', css.guide).on('end', reload);
-  gulp.watch('src/layouts/project/**/*.js', js.project).on('end', reload);
-  gulp.watch('src/layouts/guide/**/*.js', js.guide).on('end', reload);
+  gulp.watch('src/**/*.njk', html).on('end', reload)
+  gulp.watch('src/layouts/project/**/*.scss', css.project).on('end', reload)
+  gulp.watch('src/layouts/guide/**/*.scss', css.guide).on('end', reload)
+  gulp.watch('src/layouts/project/**/*.js', js.project).on('end', reload)
+  gulp.watch('src/layouts/guide/**/*.js', js.guide).on('end', reload)
+  gulp.watch('src/layouts/project/img/*', img.project).on('end', reload)
+  gulp.watch('src/layouts/guide/img/*', img.guide).on('end', reload)
 }
 
 gulp.task(
   'default',
   gulp.series(
-    gulp.parallel(html, css.project, css.guide, js.project, js.guide),
+    gulp.parallel(html, css.project, css.guide, js.project, js.guide, img.project, img.guide),
     dev
   )
 );

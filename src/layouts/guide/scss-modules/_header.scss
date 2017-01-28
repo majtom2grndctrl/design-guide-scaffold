@@ -1,0 +1,32 @@
+&-header {
+  background: $gray800;
+  display: flex;
+  @include viewportMedium {
+    .btn-open {
+      display: none;
+    }
+  }
+}
+
+&-logo {
+  margin: .25rem 2rem .25rem .5rem;
+}
+
+&-nav1 {
+  &[aria-expanded="false"] {
+    display: none;
+  }
+  @include viewportMedium {
+    display: flex;
+    > a {
+      align-items: center;
+      border-right: 1px solid $gray400;
+      display: flex;
+      padding: 0 .5em;
+      text-decoration: none;
+    }
+    .btn-close {
+      display: none;
+    }
+  }
+}

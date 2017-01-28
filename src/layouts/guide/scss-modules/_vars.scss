@@ -1,0 +1,34 @@
+// Colors
+$gray200: #333;
+$gray400: #888;
+$gray800: #e8e8e8;
+
+// Fonts
+
+$fontHeading: 'Libre Franklin', sans-serif;
+$fontCopy: 'Libre Franklin', sans-serif;
+
+// Viewport sizes
+
+$viewportSmall: (320rem/16);
+$viewportMedium: (768rem/16);
+$viewportLarge: (960rem/16);
+$viewportXL: (1200rem/16);
+
+@mixin viewportMedium {
+  @media screen and (min-width: $viewportSmall) {
+    @content;
+  }
+}
+
+@mixin viewportLarge {
+  @media screen and (min-width: $viewportMedium) {
+    @content;
+  }
+}
+
+@mixin viewportXL {
+  @media screen and (min-width: $viewportXL) {
+    @content;
+  }
+}

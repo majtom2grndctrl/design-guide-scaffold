@@ -6,13 +6,18 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/guide.css" type="text/css" />
-    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="css/guide.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
     {% block styles %}{% endblock %}
     <script type="text/javascript" src="js/core.js" async></script>
+    <script type="text/javascript" src="js/guide.js" async></script>
   </head>
-  <body>
+  <body class="guide-body">
     <header class="guide-header">
+      <img src="img/logo.svg" class="guide-logo">
+      <button class="btn-open">Navigation</button>
       <nav class="guide-nav1">
         {{ btn.close() }}
         <a href="/">Design Principles</a>
@@ -23,8 +28,10 @@
       </nav>
     </header>
     <main class="guide-content" id="contentRoot">
-      <h1>{{ page.title }}</h1>
-      {% block body %}{% endblock %}
+      <div class="guide-container">
+        <h1>{{ page.title }}</h1>
+        {% block body %}{% endblock %}
+      </div>
     </main>
   </body>
 </html>
