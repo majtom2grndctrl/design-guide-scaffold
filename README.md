@@ -13,11 +13,15 @@ This repository is also a sandbox for trying out Gulp 4.0. There is no need to i
 
 Clone the repository.
 
-`$ git clone https://github.com/majtom2grndctrl/design-guide-scaffold.git`
+```bash
+git clone https://github.com/majtom2grndctrl/design-guide-scaffold.git
+```
 
 Install dependencies with Yarn.
 
-`$ yarn install`
+```bash
+yarn install
+```
 
 Run the `dev` NPM script.
 
