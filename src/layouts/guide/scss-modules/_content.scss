@@ -12,6 +12,11 @@
     margin: 1em 0;
     max-width: 35em;
   }
+  .guide-typography-sample {
+    font-size: 2rem;
+    max-width: 20em;
+  }
+
   @include viewportXL {
 
     > .guide-container {
