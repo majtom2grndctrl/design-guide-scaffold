@@ -21,4 +21,6 @@ Install dependencies with Yarn.
 
 Run the `dev` NPM script.
 
-`$ npm run dev`
+```bash
+yarn run dev
+```
