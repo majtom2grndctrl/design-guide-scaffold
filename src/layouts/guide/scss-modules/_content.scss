@@ -18,7 +18,6 @@
   }
 
   @include viewportXL {
-
     > .guide-container {
       max-width: (900rem/16);
       margin: 0 auto;
