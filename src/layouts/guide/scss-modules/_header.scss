@@ -16,6 +16,9 @@
   &[aria-expanded="false"] {
     display: none;
   }
+  > a {
+    color: $gray300;
+  }
   @include viewportMedium {
     display: flex;
     > a {
