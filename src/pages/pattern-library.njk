@@ -1,0 +1,10 @@
+{% extends "layouts/guide/guide.njk" %}
+
+{% set page = {
+  title: "Pattern Library"
+} %}
+
+{% block body %}
+  {% import "layouts/project/patterns/field/_textbox.njk" as field %}
+  {{ field.textbox('Test label', 'text1') }}
+{% endblock %}
