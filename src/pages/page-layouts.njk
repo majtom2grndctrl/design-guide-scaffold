@@ -1,5 +1,5 @@
 {% extends "layouts/guide/guide.njk" %}
-{% import "layouts/guide/patterns/thumbnails/_thumbnails.njk" as thumbnails %}
+{% from "layouts/guide/patterns/thumbnails/_thumbnails.njk" import thumbnails %}
 {% set page = { title: 'Page Layouts' } %}
 {% set items = [
   {
@@ -15,5 +15,5 @@
 ] %}
 
 {% block body %}
-{{ thumbnails.list(items) }}
+{{ thumbnails(items) }}
 {% endblock %}
