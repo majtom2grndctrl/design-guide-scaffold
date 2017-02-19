@@ -49,7 +49,7 @@ const js = {
       .pipe(concat(output))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('./dist/js'))
-      .pipe(browserSync.stream());
+      .pipe(browserSync.stream())
   }
 }
 
@@ -62,7 +62,7 @@ const img = {
   },
   copy: (path, destination) => {
     return gulp.src(path)
-      .pipe(gulp.dest(destination));
+      .pipe(gulp.dest(destination))
   }
 }
 
