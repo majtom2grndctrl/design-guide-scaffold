@@ -1,0 +1,7 @@
+{% macro list(items) %}
+<ul class="guide-thumbnails">
+  {%- for i in items -%}
+  <li><a href="{{ i.href }}"><img src="{{ i.src }}" alt="{{ i.alt }}"></a></li>
+  {%- endfor -%}
+</ul>
+{% endmacro %}

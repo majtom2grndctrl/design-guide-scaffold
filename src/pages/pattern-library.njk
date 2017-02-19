@@ -7,4 +7,10 @@
 {% block body %}
   {% import "layouts/project/patterns/field/_textbox.njk" as field %}
   {{ field.textbox('Test label', 'text1') }}
+
+  {% import "layouts/project/patterns/dropdown/_dropdown.njk" as dropdown %}
+  {{ dropdown.dropdown('dropdown1', 'Menu', [{href: '/foo', text: 'First option'}, {href: '/bar', text: 'Section choice'}]) }}
+  {{ dropdown.dropdown('dropdown1', 'Menu', [{href: '/foo', text: 'First option'}, {href: '/bar', text: 'Section choice'}]) }}
+
+
 {% endblock %}
