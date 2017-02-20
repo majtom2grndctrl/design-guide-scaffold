@@ -1,14 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 250 250" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" width="254" height="254" viewBox="0 0 254 254" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <rect id="a" width="250" height="250"/>
+    <rect id="a" width="250" height="250" x="1" y="1"/>
     <mask id="b" width="250" height="250" x="0" y="0" fill="white">
       <use xlink:href="#a"/>
     </mask>
   </defs>
-  <g fill="none" fill-rule="evenodd">
-    <use fill="#D8D8D8" stroke="#979797" stroke-width="4" mask="url(#b)" xlink:href="#a"/>
-    <g stroke="#979797" stroke-width="2" stroke-linecap="square">
-      <path d="M-.5-.5L250.508032 250.508032M250.5-.5L-.508031999 250.508032"/>
-    </g>
+  <g fill="none" fill-rule="evenodd" stroke="#979797" transform="translate(1 1)">
+    <use fill="#D8D8D8" stroke-width="4" mask="url(#b)" xlink:href="#a"/>
+    <path stroke-width="2" d="M.5.5L251.508032 251.508032M251.5.5L.491968001 251.508032" stroke-linecap="square"/>
   </g>
 </svg>
