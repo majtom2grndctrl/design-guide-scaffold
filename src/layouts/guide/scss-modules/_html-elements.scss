@@ -1,6 +1,6 @@
 html {
   &:before {
-    content: "small";
+    content: 'small';
     display: none;
     @include viewportMedium {
       content: 'medium';

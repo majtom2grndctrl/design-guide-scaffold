@@ -1,11 +1,6 @@
 &-header {
   background: $gray800;
   display: flex;
-  @include viewportMedium {
-    .btn-open {
-      display: none;
-    }
-  }
 }
 
 &-logo {
@@ -13,14 +8,32 @@
 }
 
 &-nav1 {
-  &[aria-expanded="false"] {
-    display: none;
-  }
+  background: $gray800;
+  display: flex;
+    flex-direction: column;
+  opacity: 1;
+  position: absolute;
+    right: 0;
+    top: 0;
+  transition: opacity .25s ease-in-out;
   > a {
     color: $gray300;
   }
-  @include viewportMedium {
+  &-container {
     display: flex;
+
+    .btn-open {
+      &[aria-expanded='false'] {
+          + .guide-nav1 {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  @include viewportLarge {
+    flex-direction: row;
+    position: static;
     > a {
       align-items: center;
       border-right: 1px solid $gray400;

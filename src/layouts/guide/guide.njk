@@ -17,15 +17,17 @@
   <body class="guide-body">
     <header class="guide-header">
       <img src="img/logo.svg" class="guide-logo">
-      <button class="btn-open">Navigation</button>
-      <nav class="guide-nav1">
-        {{ btn.close() }}
-        <a href="/">Design Principles</a>
-        <a href="/typography.html">Typography</a>
-        <a href="/colors.html">Colors</a>
-        <a href="/pattern-library.html">Pattern Library</a>
-        <a href="/page-layouts.html">Page Layouts</a>
-      </nav>
+      <div class="guide-nav1-container">
+        <button class="btn-open">Navigation</button>
+        <nav class="guide-nav1">
+          {{ btn.close() }}
+          <a href="/">Design Principles</a>
+          <a href="/typography.html">Typography</a>
+          <a href="/colors.html">Colors</a>
+          <a href="/pattern-library.html">Pattern Library</a>
+          <a href="/page-layouts.html">Page Layouts</a>
+        </nav>
+      </div>
     </header>
     <main class="guide-content" id="contentRoot">
       <div class="guide-container">
